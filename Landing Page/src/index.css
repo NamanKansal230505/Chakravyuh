@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary-50: #f1f8f4;
+  --color-primary-100: #dcefe2;
+  --color-primary-200: #b9dfc7;
+  --color-primary-300: #8cc8a4;
+  --color-primary-400: #5cac7d;
+  --color-primary-500: #3d8f60;
+  --color-primary-600: #2e744c;
+  --color-primary-700: #265c3d;
+  --color-primary-800: #1e3a2b;
+  --color-primary-900: #162819;
+  
+  --color-secondary-50: #f0f4fa;
+  --color-secondary-100: #dae3f0;
+  --color-secondary-200: #b8c9e2;
+  --color-secondary-300: #8ba6cd;
+  --color-secondary-400: #5a7fb2;
+  --color-secondary-500: #3e6499;
+  --color-secondary-600: #2f4d7c;
+  --color-secondary-700: #273e65;
+  --color-secondary-800: #162a47;
+  --color-secondary-900: #0f1c30;
+  
+  --color-accent-50: #fff5eb;
+  --color-accent-100: #feebd8;
+  --color-accent-200: #fdd5b2;
+  --color-accent-300: #fcb881;
+  --color-accent-400: #fa9542;
+  --color-accent-500: #f97316;
+  --color-accent-600: #e85d04;
+  --color-accent-700: #c2490a;
+  --color-accent-800: #9d3c10;
+  --color-accent-900: #803512;
+  
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --font-heading: 'Montserrat', var(--font-sans);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+  
+  body {
+    @apply bg-white text-gray-900;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4 mx-auto max-w-7xl sm:px-6 lg:px-8;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500;
+  }
+  
+  .btn-accent {
+    @apply bg-accent-600 text-white hover:bg-accent-700 focus:ring-accent-500;
+  }
+  
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12;
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-secondary-600;
+  }
+}
+
+.parallax-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.particle-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: float 15s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-10px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-15px) translateX(-5px);
+  }
+  75% {
+    transform: translateY(-5px) translateX(-10px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+.card-hover {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}

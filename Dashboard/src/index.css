@@ -1,0 +1,116 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 83 20% 17%; /* army olive background */
+    --foreground: 60 10% 98%;
+
+    --card: 83 20% 20%;
+    --card-foreground: 60 10% 98%;
+
+    --popover: 83 20% 20%;
+    --popover-foreground: 60 10% 98%;
+
+    --primary: 0 70% 46%; /* army red */
+    --primary-foreground: 60 10% 98%;
+
+    --secondary: 90 14% 20%; /* army green */
+    --secondary-foreground: 60 10% 98%;
+
+    --muted: 84 15% 25%;
+    --muted-foreground: 215 20.2% 85.1%;
+
+    --accent: 42 38% 53%; /* army khaki */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 84 15% 25%;
+    --input: 84 15% 25%;
+    --ring: 212.7 26.8% 83.9%;
+    
+    /* Sidebar is not used but kept for compatibility */
+    --sidebar-background: 84 15% 15%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 0 70% 46%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 84 15% 20%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 84 15% 25%;
+    --sidebar-ring: 0 70% 46%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(135deg, hsl(83 20% 17%) 0%, hsl(90 14% 20%) 100%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .status-badge {
+    @apply px-2 py-0.5 rounded text-xs font-medium;
+  }
+  
+  .status-badge-critical {
+    @apply bg-alert-critical/20 text-alert-critical;
+  }
+  
+  .status-badge-warning {
+    @apply bg-alert-warning/20 text-alert-warning;
+  }
+  
+  .status-badge-info {
+    @apply bg-alert-info/20 text-alert-info;
+  }
+  
+  .status-badge-success {
+    @apply bg-alert-success/20 text-alert-success;
+  }
+
+  .army-card {
+    @apply bg-gradient-to-br from-army-olive/40 to-army-green/50 border-2 border-army-khaki/30 shadow-md backdrop-blur-sm;
+  }
+  
+  .army-button {
+    @apply bg-gradient-to-r from-army-red to-army-red/90 hover:from-army-red/90 hover:to-army-red text-white font-medium;
+  }
+
+  .army-input {
+    @apply bg-muted/50 border-army-khaki/30 focus:border-army-khaki;
+  }
+  
+  .gradient-heading {
+    @apply bg-gradient-to-r from-army-khaki to-army-tan bg-clip-text text-transparent;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-pulse-alert {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
